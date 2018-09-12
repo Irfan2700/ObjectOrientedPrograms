@@ -1,0 +1,56 @@
+{
+    "rice":[
+        {
+            "name" : "basmathi",
+            "weight" : "5",
+            "price" : "150"
+        },
+        {
+            "name" : "brown",
+            "weight" : "10",
+            "price" : "80"
+        },
+        {
+            "name" : "arborio",
+            "weight" : "15",
+            "price" : "100"
+        }
+    ],
+
+    "pulses":[
+
+        {
+            "name" : "red gram",
+            "weight" : "6",
+            "price" : "120"
+        },
+        {
+            "name" : "chick peas",
+            "weight" : "4",
+            "price" : "150"
+        },
+        {
+            "name" : "kidney peas",
+            "weight" : "3",
+            "price" : "170"
+        }
+    ],
+
+    "wheat":[
+        {
+            "name" : "spelt",
+            "weight" : "20",
+            "price" : "100"
+        },
+        {
+            "name" : "einkorn",
+            "weight" : "10",
+            "price" : "110"
+        },
+        {
+            "name" : "durum",
+            "weight" : "15",
+            "price" : "90"
+        }
+    ]
+}
