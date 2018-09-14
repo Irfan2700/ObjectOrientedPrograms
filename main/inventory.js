@@ -16,13 +16,13 @@ var utility = require('../utility/utility');
 
 function inventory() {
 
-    var read = fs.readFileSync('inventory.json', 'utf8');
+    var read = fs.readFileSync('/home/irfan2700/Javascript/Object oriented programs/tools/inventory.json', 'utf8');
 
     var result = utility.inventory(read);
    
     var res = JSON.stringify(result);
 
-    fs.writeFileSync('inventoryTotal.json', res);
+    fs.writeFileSync('/home/irfan2700/Javascript/Object oriented programs/tools/inventoryTotal.json', res);
     console.log(res);
 }
 inventory();

@@ -4,7 +4,7 @@ var readlinesync = require('readline-sync');
 
 function formChange(){
 
-    var read = fs.readFileSync('regexDemoText.txt', 'utf8');
+    var read = fs.readFileSync('/home/irfan2700/Javascript/Object oriented programs/tools/regexDemoText.txt', 'utf8');
 
     var firstName = readlinesync.question("Enter your First Name : ");
 
