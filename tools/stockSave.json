@@ -1,0 +1,21 @@
+[{
+    "sname": "asd",
+    "sprice": "646",
+    "squantity": "132",
+    "dateTime": "15/8/2018"
+}, {
+    "sname": "fds",
+    "sprice": "656",
+    "squantity": "12",
+    "dateTime": "15/8/2018"
+}, {
+    "sname": "gds",
+    "sprice": "1256",
+    "squantity": "145",
+    "dateTime": "15/8/2018"
+}, {
+    "sname": "wipro",
+    "sprice": "1000",
+    "squantity": "212",
+    "dateTime": "15/8/2018"
+}]
