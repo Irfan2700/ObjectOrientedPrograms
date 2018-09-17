@@ -95,7 +95,7 @@ module.exports = {
         var s1 = read.replace(/<<name>>/i, firstName);
         var s2 = s1.replace(/<<full name>>/i, fullName);
         var s3 = s2.replace(/xxxxxxxxxx/i, mob);
-        var s4 = s3.replace(/xx-xx-xxxx/i, date);
+        var s4 = s3.replace(/xx\/xx\/xxxx/i, date);
 
         console.log(s4);
     },
@@ -189,7 +189,7 @@ module.exports = {
         objStock.sname = name;
         objStock.sprice = null;
         objStock.squantity = null;
-        objStock.dateTime = ((d.getDate()) + "/" + (d.getMonth()) + "/" + (d.getFullYear()));
+        objStock.dateTime = ((d.getDate()) + "/" + (d.getMonth()+1) + "/" + (d.getFullYear()));
 
         arr.push(objStock);
         return arr;
@@ -202,7 +202,7 @@ module.exports = {
         objStock.sname = name;
         objStock.sprice = price;
         objStock.squantity = quantity;
-        objStock.dateTime = (d.getDate()) + "/" + (d.getMonth()) + "/" + (d.getFullYear());
+        objStock.dateTime = (d.getDate()) + "/" + (d.getMonth()+1) + "/" + (d.getFullYear());
 
         return objStock;
     },
@@ -394,6 +394,108 @@ module.exports = {
     //     }
     // },
 
+    deckOfCard : function(){
+
+        var arr = [];
+    
+
+    for (var i = 0; i < 52; i++) {
+        var f = 0;
+        if (i < 13) {
+            if (i < 9) {
+                f = 0;
+                arr[i] = 'C_' + (i + 2 - f);
+            } else if (i === 9) {
+
+                arr[i] = 'C_' + 'J';
+            } else if (i === 10) {
+                arr[i] = 'C_' + 'Q';
+            } else if (i === 11) {
+                arr[i] = 'C_' + 'K';
+            } else if (i === 12) {
+                arr[i] = 'C_' + 'A';
+            }
+
+
+        } else if (i > 12 && i < 26) {
+
+            if (i < 22) {
+                f = 13
+                arr[i] = 'D_' + (i + 2 - f);
+            } else if (i === 22) {
+
+                arr[i] = 'D_' + 'J';
+            } else if (i === 23) {
+                arr[i] = 'D_' + 'Q';
+            } else if (i === 24) {
+                arr[i] = 'D_' + 'K';
+            } else if (i === 25) {
+                arr[i] = 'D_' + 'A';
+            }
+        } else if (i > 25 && i < 39) {
+
+            if (i < 35) {
+                f = 26
+                arr[i] = 'H_' + (i + 2 - f);
+            } else if (i === 35) {
+
+                arr[i] = 'H_' + 'J';
+            } else if (i === 36) {
+                arr[i] = 'H_' + 'Q';
+            } else if (i === 37) {
+                arr[i] = 'H_' + 'K';
+            } else if (i === 38) {
+                arr[i] = 'H_' + 'A';
+            }
+        } else if (i > 38 && i < 52) {
+
+            if (i < 48) {
+                f = 39
+                arr[i] = 'S_' + (i + 2 - f);
+            } else if (i === 48) {
+
+                arr[i] = 'S_' + 'J';
+            } else if (i === 49) {
+                arr[i] = 'S_' + 'Q';
+            } else if (i === 50) {
+                arr[i] = 'S_' + 'K';
+            } else if (i === 51) {
+                arr[i] = 'S_' + 'A';
+            }
+        }
+    }
+
+    // console.log(arr)
+    // console.log(arr.length)
+    var arr1 = [];
+    for (var i = arr.length - 1; i >= 0; i--) {
+
+        var ranIndex = Math.floor(Math.random() * (i + 1));
+        var key = arr[ranIndex];
+
+        arr[ranIndex] = arr[i];
+        arr[i] = key;
+    }
+
+
+    //console.log(utility.insertionSort(arr));
+    //console.log(arr);
+    var n = 0;
+    var b = [];
+    for (var i = 0; i < 4; i++) {
+        var a = [];
+        for (var j = 0; j < 9; j++) {
+
+            a.push(arr[n]);
+            n++;
+        }
+        b.push(a);
+    }
+    //console.log(b);
+
+    return b;
+    },
+
     bubbleSortDec: function (arr) {
 
         /**
@@ -403,14 +505,14 @@ module.exports = {
         console.log(arr);
         var x = arr[1][1];
         console.log(x);
-        if(x === )
-        console.log(deckObj.x)
+        
+        console.log(deckObj[x])
         for(var k=0; k<4; k++){
             
         for (var i = 0; i < arr[k].length - 1; i++) {      
             for (var j = 0; j < arr[k].length - i - 1; j++) {
                 
-                if (parseInt(deckObj.arr[k][j]) > parseInt(deckObj.arr[k][j + 1])) {  //compare consecutive element of the array
+                if (parseInt(deckObj[arr[k][j]]) > parseInt(deckObj[arr[k][j + 1]])) {  //compare consecutive element of the array
                     var temp = arr[k][j];                  //swaping
                     arr[k][j] = arr[k][j + 1];
                     arr[k][j + 1] = temp;

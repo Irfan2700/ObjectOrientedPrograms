@@ -15,7 +15,7 @@ function formChange(){
     if(!(isNaN(mob)) & mob.length === 10){
     
     var objd =  new Date();
-    var date = objd.getDate()+"/"+objd.getMonth()+"/"+objd.getFullYear();
+    var date = objd.getDate()+"/"+(objd.getMonth()+1)+"/"+objd.getFullYear();
     var result = utility.regexDemo(read,firstName,lastName,mob,date)
     }else{console.log("Invalid Input!!...");}    
 }else{

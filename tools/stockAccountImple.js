@@ -37,14 +37,13 @@ module.exports = class StockAccount { //creating a class LinkedList class
         this.count++;
     }
 
-    sell(name, quat) {
+    indexOf(name){
 
-        var index;
         if (this.first === null) throw "List is Empty";
 
         else {
 
-            if ((this.first.name) === (name)) index = 0;
+            if ((this.first.name) === (name))  return 0;
 
             var n = this.first;
 
@@ -52,34 +51,34 @@ module.exports = class StockAccount { //creating a class LinkedList class
             for (var i = 1; i <= this.size(); i++) {
 
                 if ((n.name) === (name)) {
-                    index = i;
+                    return i;
                 }
                 n = n.next;
             }
-            index = -1;
+            return -1;
         }
+    }
 
-        if (index >= this.size()) throw ("Index Out of Bounds!!!");
+    sell(name, quat) {
 
-        if ((quat) > (this.first.quat)) return null;
+        var index = this.indexOf(name);
+        
+
+        if (index >= this.size()) throw ("");
 
         else {
             if (this.first === null) return null;
 
+            
             if (index === 0) {
 
-                var n = this.first;
-
+                
                 if ((this.first.quat) === (quat)) {
 
-
-                    if (index === 0) {
                         var n = this.first;
 
                         this.first = n.next;
                         this.count--;
-
-                    }
 
                 } else {
 
@@ -91,23 +90,66 @@ module.exports = class StockAccount { //creating a class LinkedList class
 
             var n = this.first;
 
-            for (var i = 1; i < index; i++) {
+            for (var i = 1; i < index-1; i++) {
 
                 n = n.next;
             }
-            var m = n.next;
             
-            if ((this.m.quat) === (quat)) {
+            var p = n;
+            console.log(n.next.name)
+            if ((n.next.quat) === (quat)) {
+                console.log("true")
                 n.next = n.next.next;
                 this.count--;
             } else {
 
-                n.quat -= quat;
-            }
-        }
+                p.next.quat -= quat;
+            }  
+    
+    }
     }
 
     size() {
         return this.count;
+    }
+
+    printList(){
+
+        if (this.size()===0) return "[]";
+
+        var n = this.first;
+        var str = n.name+" "+n.price+" "+n.quat+" "+'\n';
+        while(n.next!== null){
+
+            n = n.next;
+            str += n.name+" "+n.price+" "+n.quat+" "+'\n';
+        }
+        return str;
+        
+     }
+
+     get(index) {
+
+        if (index >= this.size()) throw ("Index Out of Bounds!!!");
+
+
+        else {
+            //var arr = [];
+            var n = this.first;
+            for (var i = 1; i <= index; i++) {
+                n = n.next;
+            }
+            //var s = ''
+            //console.log(this.count);
+            var obj = {
+                sname : n.name,
+                sprice : n.price,
+                squantity : n.quat
+            }
+            
+            return obj;
+        }
+
+
     }
 }
