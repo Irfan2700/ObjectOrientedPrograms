@@ -1,7 +1,7 @@
 var readlinesync = require('readline-sync');
 var utility = require('../utility/utility.js');
 var stok = require('../tools/stockAccountImple.js');
-var s1 = require('../tools/stockAccObj.js');
+
 var fs = require('fs');
 
 function stock() {
